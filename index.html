@@ -1,205 +1,199 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SANGDEV | Connecting...</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --primary-color: #2db92d;
-            --dark-green: #0a5c0a;
-            --bg-color: #0f172a; /* Nền tối sâu cho sang trọng */
-        }
+<!-- 1. TIÊU ĐỀ TRÌNH DUYỆT -->
+<title>Sang dev</title>
 
-        * {
-            margin: 0; padding: 0; box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-        }
+<!-- 2. THẺ META ĐỂ HIỂN THỊ KHI GỬI LINK (SEO & SOCIAL) -->
+<meta name="description" content="sangdevshop dịch vụ lập trình web & bán tool siu vip giá rẻ ">
+<meta property="og:title" content="tool dame fb | Sang dev">
+<meta property="og:description" content="sangdevshop dịch vụ lập  trình web & bán tool siu vip giá rẻ ">
+<meta property="og:image" content="https://sf-static.upanhlaylink.com/img/image_202605143b744d2855b5062eed3eedf8bc4d9709.jpg"> <!-- Thay link ảnh vào đây -->
+<meta property="og:url" content="https://sangdevshop.onrender.com/">
+<meta property="og:type" content="website">
 
-        body {
-            background: var(--bg-color);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-        }
+<!-- 3. LOGO NHỎ TRÊN TAB TRÌNH DUYỆT (FAVICON) -->
+<link rel="icon" type="image/x-icon" href="https://sf-static.upanhlaylink.com/img/image_202605143b744d2855b5062eed3eedf8bc4d9709.jpg">
 
-        /* Hiệu ứng hạt nền nhẹ nhàng */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: var(--primary-color);
-            filter: blur(120px);
-            opacity: 0.2;
-            top: 20%; left: 10%;
-            z-index: -1;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .loading-wrapper {
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-        }
+<style>
+:root {
+--primary-color: #2db92d;
+--dark-green: #0a5c0a;
+--bg-color: #0f172a;
+}
 
-        /* ===== LOGO NÂNG CẤP ===== */
-        .logo-container {
-            margin-bottom: 40px;
-        }
+* {
+margin: 0; padding: 0; box-sizing: border-box;
+font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
 
-        .logo {
-            font-size: 4rem;
-            font-weight: 900;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #fff, var(--primary-color), #fff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: shine 4s linear infinite;
-        }
+body {
+background: var(--bg-color);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+color: white;
+}
 
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
+body::before {
+content: "";
+position: absolute;
+width: 200px;
+height: 200px;
+background: var(--primary-color);
+filter: blur(120px);
+opacity: 0.2;
+top: 20%; left: 10%;
+z-index: -1;
+}
 
-        .status-text {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #94a3b8;
-            margin-top: 10px;
-        }
+.loading-wrapper {
+text-align: center;
+width: 100%;
+max-width: 400px;
+padding: 20px;
+}
 
-        /* ===== LOADING BAR HIỆN ĐẠI ===== */
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
+.logo-container {
+margin-bottom: 40px;
+}
 
-        .loading-bar-container {
-            width: 100%;
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 15px rgba(45, 185, 45, 0.2);
-        }
+.logo {
+font-size: 4rem;
+font-weight: 900;
+letter-spacing: 8px;
+text-transform: uppercase;
+background: linear-gradient(to right, #fff, var(--primary-color), #fff);
+background-size: 200% auto;
+-webkit-background-clip: text;
+color: transparent;
+animation: shine 4s linear infinite;
+}
 
-        .loading-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, var(--dark-green), var(--primary-color));
-            border-radius: 20px;
-            transition: width 0.1s ease-out;
-        }
+@keyframes shine {
+to { background-position: 200% center; }
+}
 
-        /* ===== OVERLAY KHI XONG ===== */
-        .transition-overlay {
-            position: fixed;
-            inset: 0;
-            background: #fff;
-            transform: scaleY(0);
-            transform-origin: bottom;
-            transition: transform .6s cubic-bezier(.77,0,.175,1);
-            z-index: 9999;
-        }
+.status-text {
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 3px;
+color: #94a3b8;
+margin-top: 10px;
+}
 
-        .transition-overlay.active {
-            transform: scaleY(1);
-            transform-origin: top;
-        }
+.progress-info {
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+font-size: 0.9rem;
+color: var(--primary-color);
+font-weight: 600;
+}
 
-        /* Responsive */
-        @media(max-width: 480px) {
-            .logo { font-size: 2.8rem; letter-spacing: 4px; }
-        }
-    </style>
+.loading-bar-container {
+width: 100%;
+height: 6px;
+background: rgba(255,255,255,0.1);
+border-radius: 20px;
+overflow: hidden;
+position: relative;
+box-shadow: 0 0 15px rgba(45, 185, 45, 0.2);
+}
+
+.loading-bar {
+width: 0%;
+height: 100%;
+background: linear-gradient(90deg, var(--dark-green), var(--primary-color));
+border-radius: 20px;
+transition: width 0.1s ease-out;
+}
+
+.transition-overlay {
+position: fixed;
+inset: 0;
+background: #fff;
+transform: scaleY(0);
+transform-origin: bottom;
+transition: transform .6s cubic-bezier(.77,0,.175,1);
+z-index: 9999;
+}
+
+.transition-overlay.active {
+transform: scaleY(1);
+transform-origin: top;
+}
+
+@media(max-width: 480px) {
+.logo { font-size: 2.8rem; letter-spacing: 4px; }
+}
+</style>
 </head>
 <body>
 
 <div class="transition-overlay" id="overlay"></div>
 
 <div class="loading-wrapper">
-    <div class="logo-container">
-        <div class="logo">SANGDEV</div>
-        <div class="status-text" id="status-msg">Đang khởi tạo hệ thống...</div>
-    </div>
+<div class="logo-container">
+<div class="logo">SANGDEV</div>
+<div class="status-text" id="status-msg">Đang khởi tạo hệ thống...</div>
+</div>
 
-    <div class="progress-box">
-        <div class="progress-info">
-            <span id="load-label">Loading</span>
-            <span id="percent-text">0%</span>
-        </div>
-        <div class="loading-bar-container">
-            <div class="loading-bar" id="bar"></div>
-        </div>
-    </div>
+<div class="progress-box">
+<div class="progress-info">
+<span id="load-label">Loading</span>
+<span id="percent-text">0%</span>
+</div>
+<div class="loading-bar-container">
+<div class="loading-bar" id="bar"></div>
+</div>
+</div>
 </div>
 
 <script>
-    const bar = document.getElementById("bar");
-    const percentText = document.getElementById("percent-text");
-    const statusMsg = document.getElementById("status-msg");
-    const overlay = document.getElementById("overlay");
+const bar = document.getElementById("bar");
+const percentText = document.getElementById("percent-text");
+const statusMsg = document.getElementById("status-msg");
+const overlay = document.getElementById("overlay");
 
-    const targetUrl = "https://sangdevshop.onrender.com/";
-    
-    // 1. TÍNH NĂNG ĐÁNH THỨC (KEEP-ALIVE)
-    // Gửi request ngay lập tức và lặp lại mỗi 10 phút
-    function wakeUpServer() {
-        console.log("Ping: Đang đánh thức máy chủ...");
-        fetch(targetUrl, { mode: 'no-cors' }) // Dùng no-cors để tránh lỗi bảo mật nếu server chưa config CORS
-            .then(() => console.log("Ping: Đã gửi request thành công!"))
-            .catch(e => console.log("Ping: Đang chờ server phản hồi..."));
-    }
+const targetUrl = "https://sangdevshop.onrender.com/";
 
-    // Chạy ngay khi mở trang
-    wakeUpServer();
-    // Gửi 2 request liên tục mỗi 10 phút (600,000ms)
-    setInterval(() => {
-        wakeUpServer();
-        setTimeout(wakeUpServer, 2000); // Request thứ 2 sau đó 2 giây
-    }, 600000);
+function wakeUpServer() {
+fetch(targetUrl, { mode: 'no-cors' })
+.catch(e => console.log("Connecting..."));
+}
 
+wakeUpServer();
 
-    // 2. LOGIC LOADING GIAO DIỆN
-    let percent = 0;
-    const messages = ["Đang kiểm tra kết nối...", "Tối ưu hóa tài nguyên...", "Sẵn sàng truy cập!"];
+let percent = 0;
+const messages = ["Đang kiểm tra kết nối...", "Tối ưu hóa tài nguyên...", "Sẵn sàng truy cập!"];
 
-    const loading = setInterval(() => {
-        percent += 1;
-        bar.style.width = percent + "%";
-        percentText.innerText = percent + "%";
+const loading = setInterval(() => {
+percent += 1;
+bar.style.width = percent + "%";
+percentText.innerText = percent + "%";
 
-        // Thay đổi thông báo dựa trên phần trăm
-        if(percent === 30) statusMsg.innerText = messages[0];
-        if(percent === 60) statusMsg.innerText = messages[1];
-        if(percent === 90) statusMsg.innerText = messages[2];
+if(percent === 30) statusMsg.innerText = messages[0];
+if(percent === 60) statusMsg.innerText = messages[1];
+if(percent === 90) statusMsg.innerText = messages[2];
 
-        if (percent >= 100) {
-            clearInterval(loading);
-            
-            setTimeout(() => {
-                overlay.classList.add("active");
-                setTimeout(() => {
-                    window.location.href = targetUrl;
-                }, 600);
-            }, 300);
-        }
-    }, 30); // Tốc độ load khoảng 3s để khách hàng kịp ngắm UI
-
+if (percent >= 100) {
+clearInterval(loading);
+setTimeout(() => {
+overlay.classList.add("active");
+setTimeout(() => {
+window.location.href = targetUrl;
+}, 600);
+}, 300);
+}
+}, 30);
 </script>
 
 </body>
